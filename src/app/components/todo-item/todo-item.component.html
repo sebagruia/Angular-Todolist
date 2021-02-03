@@ -1,1 +1,7 @@
-<p>{{task.title}}</p>
+<div [ngClass]="setClasses()">
+  <p>
+    <input type="checkbox" />
+    {{ task.title }}
+    <button class="del">x</button>
+  </p>
+</div>
