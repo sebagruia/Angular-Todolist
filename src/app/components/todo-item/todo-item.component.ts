@@ -11,6 +11,7 @@ import { Task } from 'src/app/models/Task';
 export class TodoItemComponent implements OnInit {
 
   @Input() task!:Task;
+  @Output()  deleteTodo: EventEmitter<Task> = new EventEmitter();
 
   constructor(private todoService:TodoService) { }
 
@@ -34,8 +35,8 @@ export class TodoItemComponent implements OnInit {
     this.todoService.toggleCompleted(task).subscribe(task=>console.log(task));
   }
 
-  onDelete(task:Object){
-    this.todoDelete.emit(task);
+  onDelete(task:Task){
+    this.deleteTodo.emit(task);
   }
-
+ 
 }
